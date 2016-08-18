@@ -42,7 +42,7 @@
 #include <boost/lexical_cast.hpp>
 #include <algorithm>
 #include <tinyxml.h>
-#include <console_bridge/console.h>
+//#include <console_bridge/console.h>
 
 namespace urdf{
 
@@ -53,7 +53,7 @@ bool parseModelState(ModelState &ms, TiXmlElement* config)
   const char *name_char = config->Attribute("name");
   if (!name_char)
   {
-    CONSOLE_BRIDGE_logError("No name given for the model_state.");
+    //CONSOLE_BRIDGE_logError("No name given for the model_state.");
     return false;
   }
   ms.name = std::string(name_char);
@@ -66,7 +66,7 @@ bool parseModelState(ModelState &ms, TiXmlElement* config)
       ms.time_stamp.set(sec);
     }
     catch (boost::bad_lexical_cast &e) {
-      CONSOLE_BRIDGE_logError("Parsing time stamp [%s] failed: %s", time_stamp_char, e.what());
+      //CONSOLE_BRIDGE_logError("Parsing time stamp [%s] failed: %s", time_stamp_char, e.what());
       return false;
     }
   }
@@ -82,7 +82,7 @@ bool parseModelState(ModelState &ms, TiXmlElement* config)
       joint_state->joint = std::string(joint_char);
     else
     {
-      CONSOLE_BRIDGE_logError("No joint name given for the model_state.");
+      //CONSOLE_BRIDGE_logError("No joint name given for the model_state.");
       return false;
     }
     
